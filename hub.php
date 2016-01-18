@@ -49,11 +49,11 @@ if (!empty($devices)) {
                 list($dev_name, $dev_address, $dev_type) = explode(":", str_replace(" ", ":", trim($device)));
                 $get_level = $heyuvar . 'dimlevel ' . $dev_address;
                 if ($dev_address) {
-                        $dev_level = trim(shell_exec($get_level));
+                        $dev_level = trim(exec($get_level));
                         if (($dev_type != "StdLM") && ($dev_level > 0)) $dev_level = 100;
 ?>
-                                        <div class="col-xs-4 label label-info"><?php echo ucwords(str_replace("_", " ", $dev_name)); ?></div>
-                                        <div class="col-xs-8">&nbsp;</div>
+                                        <div class="col-xs-6 label label-info"><?php echo ucwords(str_replace("_", " ", $dev_name)) . ": " . $dev_level . "%"; ?></div>
+                                        <div class="col-xs-6">&nbsp;</div>
                                         <div style="margin:0 0 4px 0">
                                         <form class="form-inline" method="post" action="/hub.php">
                                                 <input type="hidden" name="hu" value="<?php echo $dev_address; ?>" />
