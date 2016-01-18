@@ -52,7 +52,8 @@ if (!empty($devices)) {
                         $dev_level = trim(shell_exec($get_level));
                         if (($dev_type != "StdLM") && ($dev_level > 0)) $dev_level = 100;
 ?>
-                                        <h5><span class="label label-default"><?php echo ucwords(str_replace("_", " ", $dev_name)); ?></span></h5>
+                                        <div class="col-xs-4 label label-info"><?php echo ucwords(str_replace("_", " ", $dev_name)); ?></div>
+                                        <div class="col-xs-8">&nbsp;</div>
                                         <div style="margin:0 0 4px 0">
                                         <form class="form-inline" method="post" action="/hub.php">
                                                 <input type="hidden" name="hu" value="<?php echo $dev_address; ?>" />
