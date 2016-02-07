@@ -33,8 +33,6 @@ body,.panel-body,.panel{background-color:#000;border:0}
 </style>
 </head>
 <body>
-<br />
-<br />
 <div class="container container-fluid" role="main">
         <div class="row">
                 <div class="col-sm-3">
@@ -52,21 +50,12 @@ if (!empty($devices)) {
                         $dev_level = trim(exec($get_level));
                         if (($dev_type != "StdLM") && ($dev_level > 0)) $dev_level = 100;
 ?>
-                                        <div class="col-xs-6 label label-info"><?php echo ucwords(str_replace("_", " ", $dev_name)) . ": " . $dev_level . "%"; ?></div>
-                                        <div class="col-xs-6">&nbsp;</div>
+                                        <h4><span class="label label-primary"><?php echo ucwords(str_replace("_", " ", $dev_name)); ?>&nbsp;<span class="badge"><?php echo $dev_level . "%"; ?></span></span></h4>
                                         <div style="margin:0 0 4px 0">
                                         <form class="form-inline" method="post" action="/hub.php">
                                                 <input type="hidden" name="hu" value="<?php echo $dev_address; ?>" />
-                                                <button type="submit" class="btn btn-sm1 btn-success" name="action" value="on">on</button>
-                                                <button type="submit" class="btn btn-sm1 btn-danger" name="action" value="off">off</button>
-<?php
-                                if ($dev_type == "StdLM") { 
-                                        for ($x = 50; $x < 91; $x+=20) { ?>
-                                                <button type="submit" class="btn btn-sm1 btn-default" name="action" value="<?php echo $x; ?>"><?php echo $x; ?></button>
-<?php
-                                        }
-                               }
-?>
+                                                <button type="submit" class="btn btn-lg btn-success" name="action" value="on">on</button>
+                                                <button type="submit" class="btn btn-lg btn-danger" name="action" value="off">off</button>
                                         </form>
                                         </div>
 <?php
