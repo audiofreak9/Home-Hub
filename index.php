@@ -1,5 +1,4 @@
 <?php
-
 function lightLoop($light_data) {
         $output = "";
         $output .= "\t<div class=\"col-xs-12 col-sm-4 col-md-3 col-lg-2\">\n";
@@ -25,7 +24,6 @@ function lightLoop($light_data) {
         $output .= "\t</div>\n";
         return $output
 }
-
 function tempLoop($temp_data) {
         $output = "";
         for($x = 0; $x <= count($temp_data) - 1; $x++) {
